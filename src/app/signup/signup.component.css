@@ -1,0 +1,29 @@
+mat-card{
+    width: 25%;
+    position: absolute;
+    left:38%;
+    top: 20%;
+    padding: 10px 10px 10px 10px;
+}
+mat-form-field{
+    width: 80%;
+    margin-left: 15px;
+}
+
+.back-button{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}
+mat-card-actions{
+    text-align: center;
+}
+.help-block{
+    color: red;
+    margin-left: 20px;
+}
+.emaildiv{
+    position: absolute;
+    top:20%;
+    left:20%
+}

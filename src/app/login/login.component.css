@@ -1,0 +1,17 @@
+mat-card{
+    width: 25%;
+    position: absolute;
+    left:38%;
+    top: 20%;
+    padding: 10px 10px 10px 10px;
+}
+mat-form-field{
+    width: 80%;
+    margin-left: 15px;
+}
+
+.forgot-button{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}

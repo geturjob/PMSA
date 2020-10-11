@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="openedMenu = !openedMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Password Management System</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="navigateToLogin()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="openedMenu" [@onSideNavChange]="sidenavChange ? 'open' : 'close'">
+      <mat-list>
+        <mat-list-item [routerLink]="['password']" routerLinkActive = "active">
+            <mat-icon [@animateText]="textChange ? 'hide' : 'show'">view_list</mat-icon>
+            <span [@animateText]="textChange ? 'show' : 'hide'">Password List</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['addpassword']" routerLinkActive = "active">
+            <mat-icon [@animateText]="textChange ? 'hide' : 'show'">note_add</mat-icon>
+            <span [@animateText]="textChange ? 'show' : 'hide'">Add Password</span>
+        </mat-list-item>
+      </mat-list>
+      <button mat-icon-button class="arrow" (click)="changeSideNav()">
+          <mat-icon *ngIf="!sidenavChange">fast_forward</mat-icon>
+          <mat-icon *ngIf="sidenavChange">fast_rewind</mat-icon>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content [@onMainContentChange]="contentChange ? 'open' : 'close'">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

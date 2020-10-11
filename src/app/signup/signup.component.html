@@ -1,0 +1,70 @@
+<mat-card *ngIf="!isEmailVerification">
+    <div *ngIf ="!showSuccess">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="signupform">
+                <mat-form-field>
+                    <mat-label>Email Address</mat-label>
+                    <input type="email" matInput formControlName="email" autocomplete="off" required>
+
+                </mat-form-field>
+                <span class="help-block"
+                    *ngIf="signupform.get('email').errors && signupform.get('email').touched || signupform.get('email').dirty">
+                    <span *ngIf="signupform.get('email').hasError('pattern')">
+                        Enter valid email
+                    </span>
+                </span>
+                <br>
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput formControlName="username" autocomplete="off" required>
+                </mat-form-field>
+                <span class="help-block"
+                    *ngIf="signupform.get('username').errors && signupform.get('username').touched || signupform.get('username').dirty">
+                    <span *ngIf="signupform.get('username').hasError('minlength')">
+                        Minimum length should be 3
+                    </span>
+                </span>
+                <br>
+                <div formGroupName="passwordGroup">
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password" autocomplete="off">
+                    </mat-form-field>
+                    <span class="help-block"
+                        *ngIf="signupform.get('passwordGroup').get('password').errors && signupform.get('passwordGroup').get('password').touched || signupform.get('passwordGroup').get('password').dirty">
+                        <span *ngIf="signupform.get('passwordGroup').get('password').hasError('minlength')">
+                            Minimum length should be 8
+                        </span>
+                    </span>
+                    <mat-form-field>
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="text" matInput formControlName="confirmpassword" autocomplete="off">
+                    </mat-form-field>
+
+                    <span class="help-block"
+                        *ngIf="signupform.get('passwordGroup').errors && signupform.get('passwordGroup').get('password').valid && signupform.get('passwordGroup').get('confirmpassword').touched">
+                        <span *ngIf="signupform.get('passwordGroup').hasError('mismatch')">
+                            Confirm Password don't match
+                        </span>
+                    </span>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-button (click)="signUpAction()" [disabled]="!signupform.valid">SignUp</button>
+        </mat-card-actions>
+    </div>
+    <div *ngIf ="showSuccess">
+        <span>Registered Successfully</span>
+    </div><br>
+    <button type="button" mat-button class="back-button" (click)="backToLogin()">Back To Login</button>
+</mat-card>
+<div class="emaildiv" *ngIf="isEmailVerification">
+    <div *ngIf="verified">
+        <span>Email verified Successfully</span><br>
+        <button type="button" mat-button  (click)="backToLogin()">Back To Login</button>
+    </div>
+</div>
