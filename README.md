@@ -1,27 +1,59 @@
-# PMSA
+Below are the different functionality and screens of web application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+Login Page
 
-## Development server
+<img src="images/login.PNG" width="500px"/>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+SignUp Page
 
-## Code scaffolding
+<img src="images/signup.PNG" width="500px"/>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Forgot Password Page
 
-## Build
+<img src="images/fpass1.PNG" width="300px"/>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<img src="images/fpass2.PNG" width="300px"/>
 
-## Running unit tests
+<img src="images/fpass3.PNG" width="300px"/>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+DashBoard
 
-## Running end-to-end tests
+<img src="images/dash.PNG" width="500px"/>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+DashBoard All-Items Page
 
-## Further help
+<img src="images/dash1.PNG" width="500px"/>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Add New Item
+
+<img src="images/dash3.PNG" width="500px"/>
+
+Edit Items
+
+<img src="images/edit.PNG" width="500px"/>
+
+Delete Items
+
+<img src="images/delete.PNG" width="500px"/>
+
+Social Categories Stored
+
+<img src="images/dash4.PNG" width="500px"/>
+
+Banks Data Stored
+
+<img src="images/dash5.PNG" width="500px"/>
+
+Others Password Stored
+
+<img src="images/dash6.PNG" width="500px"/>
+
+Notes
+
+<img src="images/dash7.PNG" width="500px"/>
+
+Half Close Side Navigation
+
+<img src="images/dash8.PNG" width="500px"/>
+
+Have a good day !
