@@ -1,5 +1,8 @@
 <mat-card *ngIf="!isEmailVerification">
-    <div *ngIf ="!showSuccess">
+    <div class="leftDiv">
+        <img src="../../assets/passwordSignup.jpg"/>
+    </div>
+    <div class="rightDiv"*ngIf="!showSuccess">
         <mat-card-header>
             <mat-card-title>Register</mat-card-title>
         </mat-card-header>
@@ -54,17 +57,16 @@
             </form>
         </mat-card-content>
         <mat-card-actions>
-            <button type="submit" mat-button (click)="signUpAction()" [disabled]="!signupform.valid">SignUp</button>
+            <button type="submit" mat-button (click)="signUpAction()" color="primary" [disabled]="!signupform.valid">SignUp</button>
         </mat-card-actions>
     </div>
-    <div *ngIf ="showSuccess">
-        <span>Registered Successfully</span>
-    </div><br>
-    <button type="button" mat-button class="back-button" (click)="backToLogin()">Back To Login</button>
+        <span *ngIf="showSuccess">Registered Successfully</span>
+    <br>
+    <button type="button" mat-button class="back-button" color="warn" (click)="backToLogin()">Back To Login</button>
 </mat-card>
 <div class="emaildiv" *ngIf="isEmailVerification">
     <div *ngIf="verified">
         <span>Email verified Successfully</span><br>
-        <button type="button" mat-button  (click)="backToLogin()">Back To Login</button>
+        <button type="button" mat-button (click)="backToLogin()">Back To Login</button>
     </div>
 </div>

@@ -19,6 +19,9 @@ import { SignupComponent } from './signup/signup.component';
 import { PasswordsComponent } from './passwords/passwords.component';
 import { AddPasswordComponent } from './add-password/add-password.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { EditPasswordComponent } from './edit-password/edit-password.component';
+import { CategoryComponent } from './category/category.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     SignupComponent,
     PasswordsComponent,
     AddPasswordComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    EditPasswordComponent,
+    CategoryComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,

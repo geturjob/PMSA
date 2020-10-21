@@ -1,8 +1,11 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, AfterViewInit , ViewChild, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { ClientServiceService } from '../client-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditPasswordComponent } from '../edit-password/edit-password.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-passwords',
@@ -11,13 +14,13 @@ import { ClientServiceService } from '../client-service.service';
 })
 export class PasswordsComponent implements AfterViewInit, OnInit  {
 
-  displayedColumns: string[] = ['Category', 'Password'];
+  displayedColumns: string[] = ['Type', 'Category', 'Password','Edit', 'Delete'];
 
   dataSource : any;
 
   @ViewChild(MatPaginator) paginator : MatPaginator;
 
-  constructor(private _cService : ClientServiceService) { 
+  constructor(private route: Router, private snack: MatSnackBar, private _cService : ClientServiceService, private dialog : MatDialog) { 
   }
 
   ngAfterViewInit (): void {
@@ -45,6 +48,39 @@ export class PasswordsComponent implements AfterViewInit, OnInit  {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  editRecords(row:any){
+    console.log(row.Category);
+     this.dialog.open(EditPasswordComponent,{
+      width: '400px',
+      data: {Category: row.Category, password: row.Password, isEdit:true, isDelete:false, isAdd:false}
+     });
+  }
+
+  deleteRecords(row:any){
+    const dialogRef = this.dialog.open(EditPasswordComponent,{
+      width: '250px',
+      data: {isEdit:false, isDelete:true, isAdd:false}
+     });
+
+     dialogRef.afterClosed().subscribe(result=>{
+       if(result == true)
+       {
+        this._cService.sendPostRequest('/password/deletePassword', row).subscribe(
+          (data)=>{
+            this.snack.open('Delete Success','',{
+              duration:3000
+            });
+            this.route.navigate(['dashboard']);
+          },
+          (err)=>{
+            this.snack.open('Server Error','',{
+              duration:3000
+            });
+          });
+       }
+     });
   }
 
 }

@@ -8,6 +8,14 @@ export class ClientServiceService {
 
   constructor(private _http: HttpClient) { }
 
+  getClientList():any[]{
+    return [
+      {name :'Social Accounts', value:'social'},
+      {name :'Banks', value:'bank'},
+      {name :'Others', value:'others'},
+    ]
+  }
+
   sendPostRequest(url: string, body: any) {
     //var requestBody = JSON.stringify(body);
     return this._http.post('http://localhost:3000' + url, body, {

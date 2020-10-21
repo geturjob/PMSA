@@ -7,6 +7,9 @@ mat-toolbar{
 mat-sidenav-container{
     height: 92%;
 }
+mat-sidenav{
+    overflow: hidden;
+}
 mat-list-item:hover{
     cursor: pointer;
 }
@@ -17,4 +20,27 @@ mat-list-item:hover{
 }
 .active{
     background-color: ghostwhite;
+}
+mat-tree{
+    margin-left: 15px;
+}
+.primary{
+    color: rgba(17, 17, 199, 0.952);
+}
+.circle{
+    border: 2.7px solid rgba(17, 17, 199, 0.952);
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+}
+.avtor{
+    position: relative;
+    top: 0.20px;
+    left: 5px;
+    color: rgba(17, 17, 199, 0.952);
+    font-weight: bold;
+    font-size: 20px;
+}
+.pointer{
+    cursor: pointer;
 }

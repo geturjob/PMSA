@@ -4,12 +4,12 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export const onSideNavChange = trigger('onSideNavChange', [
   state('close',
     style({
-      'min-width': '60px'
+      'width': '90px'
     })
   ),
   state('open',
     style({
-      'min-width': '200px'
+      'width': '200px'
     })
   ),
   transition('close => open', animate('250ms ease-in')),
@@ -19,7 +19,7 @@ export const onSideNavChange = trigger('onSideNavChange', [
 export const onMainContentChange = trigger('onMainContentChange', [
   state('close',
     style({
-      'margin-left': '62px'
+      'margin-left': '92px'
     })
   ),
   state('open',

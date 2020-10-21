@@ -1,7 +1,8 @@
 mat-card{
-    width: 25%;
+    width:60%;
+    height: 55%;
     position: absolute;
-    left:38%;
+    left:20%;
     top: 20%;
     padding: 10px 10px 10px 10px;
 }
@@ -14,4 +15,29 @@ mat-form-field{
     position: absolute;
     right: 12px;
     bottom: 12px;
+}
+.moveRight{
+    position: absolute;
+    right: 2px;
+    bottom: 1px;
+}
+mat-card div{
+    float: left;
+}
+.leftDiv{
+    width: 60%;
+    height: 100%;
+}
+.rightDiv{
+    width: 40%;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+mat-card-actions{
+    text-align: center;
+}
+.green{
+    color: rgb(17, 150, 17);
 }

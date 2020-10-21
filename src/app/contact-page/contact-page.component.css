@@ -1,0 +1,16 @@
+.addDiv{
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+}
+.topDiv{
+    height: 80%;
+    padding: 20px 20px 20px 20px;
+}
+mat-icon{
+    font-size: 50px;
+    cursor: pointer;
+}
+mat-expansion-panel{
+    margin-top: 5px;
+}

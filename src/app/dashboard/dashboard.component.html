@@ -1,33 +1,59 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="openedMenu = !openedMenu">
-      <mat-icon>menu</mat-icon>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    (click)="openedMenu = !openedMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Password Management System</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+    (click)="navigateToLogin()">
+    <mat-icon matTooltip="logout">logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [(opened)]="openedMenu" [@onSideNavChange]="sidenavChange ? 'open' : 'close'">
+    <mat-list>
+      <mat-list-item [routerLink]="['password']" routerLinkActive="active">
+        <mat-icon color="primary" [@animateText]="textChange ? 'hide' : 'show'" matTooltip="Password List">home</mat-icon>
+        <span class="primary" [@animateText]="textChange ? 'show' : 'hide'">All Items</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['addpassword']" routerLinkActive="active">
+        <mat-icon color="primary" [@animateText]="textChange ? 'hide' : 'show'" matTooltip="Add Password">add</mat-icon>
+        <span class="primary" [@animateText]="textChange ? 'show' : 'hide'">Add New Item</span>
+      </mat-list-item>
+
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node class="pointer" *matTreeNodeDef="let node" matTreeNodePadding [routerLink]="['categories', node.name]" routerLinkActive="active">
+          <!-- use a disabled button to provide padding for tree leaf -->
+
+          <div class="circle" [@animateText]="textChange ? 'hide' : 'show'" matTooltip="{{node.name}}"><span class="avtor" >{{node.name.charAt(0)}}</span></div>
+          <!-- <mat-icon color="primary" [@animateText]="textChange ? 'hide' : 'show'" matTooltip="{{node.name}}">facebook</mat-icon> -->
+          <span class="primary" [@animateText]="textChange ? 'show' : 'hide'">{{node.name}}</span>
+
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+          <span class="primary" [@animateText]="textChange ? 'show' : 'hide'">{{node.name}}</span>
+          
+            <mat-icon color="primary" class="mat-icon-rtl-mirror pointer" matTreeNodeToggle matTooltip="All Categories">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </mat-tree-node>
+      </mat-tree>
+      
+      <mat-list-item [routerLink]="['contact']" routerLinkActive="active">
+        <mat-icon color="primary" [@animateText]="textChange ? 'hide' : 'show'" matTooltip="Add Note">note</mat-icon>
+        <span class="primary" [@animateText]="textChange ? 'show' : 'hide'">Other Notes</span>
+      </mat-list-item>
+    </mat-list>
+    <button  mat-icon-button class="arrow" (click)="changeSideNav()">
+      <mat-icon color="primary" *ngIf="!sidenavChange">fast_forward</mat-icon>
+      <mat-icon color="primary" *ngIf="sidenavChange">fast_rewind</mat-icon>
     </button>
-    <span>Password Management System</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="navigateToLogin()">
-      <mat-icon>logout</mat-icon>
-    </button>
-  </mat-toolbar>
-  
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" [(opened)]="openedMenu" [@onSideNavChange]="sidenavChange ? 'open' : 'close'">
-      <mat-list>
-        <mat-list-item [routerLink]="['password']" routerLinkActive = "active">
-            <mat-icon [@animateText]="textChange ? 'hide' : 'show'">view_list</mat-icon>
-            <span [@animateText]="textChange ? 'show' : 'hide'">Password List</span>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['addpassword']" routerLinkActive = "active">
-            <mat-icon [@animateText]="textChange ? 'hide' : 'show'">note_add</mat-icon>
-            <span [@animateText]="textChange ? 'show' : 'hide'">Add Password</span>
-        </mat-list-item>
-      </mat-list>
-      <button mat-icon-button class="arrow" (click)="changeSideNav()">
-          <mat-icon *ngIf="!sidenavChange">fast_forward</mat-icon>
-          <mat-icon *ngIf="sidenavChange">fast_rewind</mat-icon>
-      </button>
-    </mat-sidenav>
-    <mat-sidenav-content [@onMainContentChange]="contentChange ? 'open' : 'close'">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  </mat-sidenav>
+  <mat-sidenav-content [@onMainContentChange]="contentChange ? 'open' : 'close'">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

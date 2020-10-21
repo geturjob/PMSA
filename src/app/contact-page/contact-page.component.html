@@ -1,0 +1,22 @@
+<div class="topDiv">
+    <div *ngFor="let data of dataList">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{data.NoteTitle}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <hr>
+            <ng-template matExpansionPanelContent>
+                <div>{{data.NoteDesc}}</div>
+            </ng-template>
+            <mat-action-row>
+                <button mat-button color="warn" (click)="deleteRecords(data)">Delete</button>
+                <button mat-button color="primary" (click)="editRecords(data)">Edit</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </div>
+    <div class="addDiv">
+        <mat-icon matTooltip="Add New Note" color="primary" (click)="addRecords()">add</mat-icon>
+    </div>
+</div>

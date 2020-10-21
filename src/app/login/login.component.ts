@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
   emp: any = {}
+  show:boolean = false;
   constructor(private _router: Router, private fb: FormBuilder, private _cService: ClientServiceService, private snack: MatSnackBar) { }
 
   loginform = this.fb.group({
